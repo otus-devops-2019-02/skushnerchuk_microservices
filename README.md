@@ -1,2 +1,9 @@
-# skushnerchuk_microservices
-skushnerchuk microservices repository
+### Homework 12 (docker-1)
+
+**Основное задание**
+
+- Установлены docker, docker-compose, docker-machine;
+- Рассмотрели жизненные циклы контейнера на примере стандартных образов (hello-world, ubuntu, nginx);
+
+**Задания со \***
+- Рассмотрены различия между образом и конейнером.
