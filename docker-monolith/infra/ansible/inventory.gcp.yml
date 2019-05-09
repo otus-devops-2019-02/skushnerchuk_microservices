@@ -1,0 +1,11 @@
+---
+plugin: gcp_compute
+projects:
+  - docker-000000
+auth_kind: serviceaccount
+service_account_file: ~/.ansible/docker-0898ba5ee643.json
+scopes:
+  - https://www.googleapis.com/auth/compute
+filters: null
+compose:
+  ansible_host: networkInterfaces[0].accessConfigs[0].natIP
