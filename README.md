@@ -1,4 +1,63 @@
-[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=docker-2)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
+[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=docker-3)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
+
+### Homework 14 (docker-3)
+**Основное задание**
+
+Создана новая структура приложения для формирования микросервисной архитектуры
+
+**Задание со \***
+
+Для изменения значения переменных используем ключ "-e":
+```bash
+$ docker run -d --network=reddit --network-alias=post_db_alt --network-alias=comment_db_alt mongo:latest
+$ docker run -d --network=reddit --network-alias=post_alt -e POST_DATABASE_HOST=post_db_alt skushnerchuk/post:1.0
+$ docker run -d --network=reddit --network-alias=comment_alt -e COMMENT_DATABASE_HOST=comment_db_alt skushnerchuk/comment:1.0
+$ docker run -d --network=reddit -p 9292:9292 -e POST_SERVICE_HOST=post_alt -e COMMENT_SERVICE_HOST=comment_alt skushnerchuk/ui:1.0
+```
+
+Подключено внешнее хранилище к контейнеру с mongo:
+```
+docker run -d --network=reddit --network-alias=post_db --network-alias=comment_db -v reddit_db:/data/db mongo:latest
+```
+Все образы пересобраны на основе alpine:
+```bash
+REPOSITORY                TAG                 SIZE
+drcoyote/post             1.0                 67.1MB
+drcoyote/comment          1.0                 63.4MB
+drcoyote/ui               1.0                 66.2MB
+```
+
+<details>
+<summary>Homework 13 (docker-2)</summary>
+### Homework 13 (docker-2)
+**Основное задание**
+
+Выполнено создание нового проекта в GCP
+
+Повторил практику из лекции:
+$ docker run -d --network=reddit --network-alias=post_db_alt --network-alias=comment_db_alt mongo:latest
+$ docker run -d --network=reddit --network-alias=post_alt -e POST_DATABASE_HOST=post_db_alt skushnerchuk/post:1.0
+$ docker run -d --network=reddit --network-alias=comment_alt -e COMMENT_DATABASE_HOST=comment_db_alt skushnerchuk/
+comment:1.0
+$ docker run -d --network=reddit -p 9292:9292 -e POST_SERVICE_HOST=post_alt -e COMMENT_SERVICE_HOST=comment_alt
+skushnerchuk/ui:1.0
+```
+
+Подключено внешнее хранилище к контейнеру с mongo:
+```
+docker run -d --network=reddit --network-alias=post_db --network-alias=comment_db -v reddit_db:/data/db mongo:latest
+```
+
+Все образы пересобраны на основе alpine:
+```
+REPOSITORY                TAG                 SIZE
+drcoyote/post             1.0                 67.1MB
+drcoyote/comment          1.0                 63.4MB
+drcoyote/ui               1.0                 66.2MB
+```
+
+<details>
+<summary>Homework 13 (docker-2)</summary>
 ### Homework 13 (docker-2)
 **Основное задание**
 
@@ -25,7 +84,7 @@ docker run --rm --pid host -ti tehbilly/htop
 С использованием этого шаблона создана конфигурация terraform, которая используется для поднятия приложения с указанным количеством экземпляров ВМ.
 
 Написаны ansible playbooks для установки докера в образ и для запуска контейнера после поднятия инфраструктуры.
-
+</details>
 
 <details>
 <summary>Homework 12 (docker-1)</summary>
