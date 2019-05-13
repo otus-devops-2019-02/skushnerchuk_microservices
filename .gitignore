@@ -6,3 +6,5 @@ variables.json
 *.tfvars
 .terraform/
 roles/
+run_app.sh
+.idea/
