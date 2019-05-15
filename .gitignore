@@ -8,3 +8,5 @@ variables.json
 roles/
 run_app.sh
 .idea/
+.env
+create-docker-host.sh

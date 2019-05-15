@@ -1,0 +1,25 @@
+#
+# Здесь нет необходимости все переносить из основного docker-compose,
+# мы просто перекрываем или добавляем нужное
+#
+version: '3.3'
+services:
+  ui:
+    volumes:
+      - type: bind
+        source: ./ui
+        target: /app
+    command: ["puma", "--debug", "-w", "2"]
+
+  post:
+    volumes:
+      - type: bind
+        source: ./post-py
+        target: /app
+
+  comment:
+    volumes:
+      - type: bind
+        source: ./comment
+        target: /app
+    command: ["puma", "--debug", "-w", "2"]
