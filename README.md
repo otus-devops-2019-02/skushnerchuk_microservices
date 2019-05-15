@@ -1,6 +1,39 @@
-[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=docker-3)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
 
-### Homework 14 (docker-3)
+
+[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=docker-4)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
+
+### Homework 15 (docker-4)
+
+После выполнения команды
+```
+docker run --network host -d nginx
+```
+ее повтор приведет к провалу запуска, так как первый контейнер уже занял нужные адрес/порт:
+```
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+```
+
+**docker-compose**
+
+Базовое имя проекта можно задать с помощью ключа -p при старте:
+```bash
+docker-compose -p my_project up -d
+```
+По умолчанию в качестве имени проекта используется имя директории, откуда осуществляется запуск.
+
+**Задание со \***
+
+Для того чтобы иметь возможность изменения кода, не меняя образ, мы можем смонтировать папки с исходниками с помощью конструкции:
+```Dockerfile
+volumes:
+  - type: bind
+    source: ./post-py
+    target: /app
+```
+Эта возможность, а также ручной запуск **puma** вынесены в файл **docker-compose.override.yml**
+
+<details>
+<summary>Homework 14 (docker-3)</summary>
 **Основное задание**
 
 Создана новая структура приложения для формирования микросервисной архитектуры
@@ -26,10 +59,10 @@ drcoyote/post             1.0                 67.1MB
 drcoyote/comment          1.0                 63.4MB
 drcoyote/ui               1.0                 66.2MB
 ```
+</details>
 
 <details>
 <summary>Homework 13 (docker-2)</summary>
-### Homework 13 (docker-2)
 **Основное задание**
 
 Выполнено создание нового проекта в GCP
