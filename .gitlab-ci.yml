@@ -17,14 +17,19 @@ before_script:
 build_job:
   stage: build
   script:
-    - echo 'Building'
+    - docker build -t reddit:$VERSION reddit/
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+    - docker tag reddit:$VERSION $CI_REGISTRY_USER/otus-reddit:$VERSION
+    - docker push $CI_REGISTRY_USER/otus-reddit:$VERSION
 
 test_unit_job:
   stage: test
-  services:
-    - mongo:latest
+  # services:
+  #   - mongo:latest
   script:
-    - ruby simpletest.rb
+    - docker run --name test_unit -d $CI_REGISTRY_USER/otus-reddit:$VERSION
+    - docker exec -i test_unit ruby -Creddit simpletest.rb
+    - docker rm -f test_unit
 
 test_integration_job:
   stage: test
