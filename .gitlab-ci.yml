@@ -26,6 +26,7 @@ test_job:
 
 production:
   stage: production
+  image: ruby:2.4.2
   when: manual
   script:
     - eval $(ssh-agent -s)
