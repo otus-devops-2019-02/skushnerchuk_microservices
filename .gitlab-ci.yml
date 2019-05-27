@@ -18,7 +18,7 @@ variables:
 build_job:
   stage: build
   script:
-    - export DOCKER_HOST="tcp://localhost:2375"
+    # - export DOCKER_HOST="tcp://localhost:2375"
     - docker build -t reddit:$VERSION reddit/
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
     - docker tag reddit:$VERSION $CI_REGISTRY_USER/otus-reddit:$VERSION
