@@ -34,4 +34,4 @@ production:
     - ssh -o "StrictHostKeyChecking=no" sergey@$APP_IP "sudo docker rm -f reddit && sudo docker run --name reddit -d -p 9292:9292 $CI_REGISTRY_USER/otus-reddit:$VERSION"
   environment:
     name: production
-    url: http://example.com
+    url: http://$APP_IP:9292
