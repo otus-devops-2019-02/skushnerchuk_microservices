@@ -8,8 +8,9 @@ stages:
   - production
 
 variables:
-  DATABASE_URL: 'mongodb://mongo/user_posts'
-
+#  DATABASE_URL: 'mongodb://mongo/user_posts'
+  VERSION: '0.3'
+  REDDIT_IP: '172.16.111.186'
 # before_script:
 #   - cd reddit
 #   - bundle install
