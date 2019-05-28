@@ -1,0 +1,13 @@
+---
+plugin: gcp_compute
+projects:
+  - docker-12345
+auth_kind: serviceaccount
+service_account_file: ~/.ansible/docker-0898ba5ee643.json
+filters:
+hostnames:
+ - name
+groups:
+  gitlab-runners: "'gitlabrunner' in name"
+compose:
+  ansible_host: networkInterfaces[0].accessConfigs[0].natIP

@@ -1,0 +1,28 @@
+---
+gitlab_runner_coordinator_url: 'http://35.240.14.156/'
+gitlab_runner_registration_token: 'gitlab_runner_registration_token'
+gitlab_runner_concurrent: 20
+gitlab_runner_runners:
+  - name: 'gcp-runner'
+    executor: 'docker+machine'
+    docker_image: 'alpine:latest'
+    tags:
+      - linux
+      - xenail
+      - ubuntu
+      - docker
+      - runner
+    docker_volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - '/cache'
+    extra_configs:
+      runners.machine:
+        MachineDriver: 'google'
+        MachineName: 'autoscale-%s'
+        MachineOptions: [
+            "google-project=docker-12345",
+            "google-machine-image=https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/family/ubuntu-1604-lts",
+            "google-machine-type=n1-standard-1",
+            "google-zone=europe-west1-b",
+            "google-use-internal-ip=true"
+        ]

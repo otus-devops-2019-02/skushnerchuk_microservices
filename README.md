@@ -1,8 +1,84 @@
 
 
-[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=docker-4)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
+[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=gitlab-ci-1)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
 
-### Homework 15 (docker-4)
+### Homework 16 (gitlab-ci-1)
+
+#### Сделано:
+Проведены эксперименты с GitLab:
+- установка и настройка
+- работа с репозитариями
+- работа с pipeline
+- работа с runners
+
+Установка экземпляра GitLab:
+
+В папке gitlab-ci/gitlab_instance выполнить команду:
+```
+terraform plan
+```
+
+**Задания со \***
+
+**Сборка и деплой контейнера приложения**
+
+Для развертывания приложения после сборки контейнера в настройках проекта были добавлены перменные:
+```
+CI_REGISTRY_PASSWORD
+CI_REGISTRY_USER
+SSH_PRIVATE_KEY
+```
+Вирутальная машина для развертывания приложения поднималась вручную.
+
+После коммита и отработки pipeline на целевой машине поднимался контейнер с приложением.
+
+**Автоматизация развертывания и регистрации runners**
+
+Для достижения цели использовался [GitLab bastion](https://about.gitlab.com/2018/06/19/autoscale-continuous-deployment-gitlab-runner-digital-ocean/)
+
+Последовательность создания:
+
+Установить локально роли:
+```
+ansible-galaxy install geerlingguy.docker
+ansible-galaxy install riemers.gitlab-runner
+ansible-galaxy install wtanaka.gcloud_sdk
+```
+
+Основную задачу по настройке и регистрации runner выполняла роль **riemers.gitlab-runner**, что позволило свести ручную работу к минимуму.
+
+В папке gitlab-ci/gitlab_instance в файле **gitlabrunner_vars.yml** установить переменные:
+```
+gitlab_runner_coordinator_url
+gitlab_runner_registration_token
+google-project
+```
+После чего выполнить в этой же папке команду
+```
+terraform init
+```
+Зайти на созданный инстанс и выполнить там команды:
+```
+gcloud init --console-only
+gcloud auth application-default login
+```
+
+После этого runner будет зарегистрирован в GitLab  и готов к работе. После коммита автоматически будет создан еще один runner:
+
+![alt text](./gitlab-ci/runners.png)
+
+**Выполнена интеграция GitLab и Slack** с помощью веб-хуков: [канал](https://devops-team-otus.slack.com/messages/CH2FTQXQE)
+
+
+
+
+
+
+
+
+
+<details>
+<summary>Homework 15 (docker-4)</summary>
 
 После выполнения команды
 ```
@@ -31,7 +107,7 @@ volumes:
     target: /app
 ```
 Эта возможность, а также ручной запуск **puma** вынесены в файл **docker-compose.override.yml**
-
+</details>
 <details>
 <summary>Homework 14 (docker-3)</summary>
 **Основное задание**
