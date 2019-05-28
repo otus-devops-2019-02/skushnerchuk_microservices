@@ -1,0 +1,19 @@
+---
+- name: Deploy runners
+  hosts: gitlabrunner
+  gather_facts: true
+  become: true
+  vars_files:
+    - gitlabrunner_vars.yml
+
+  tasks:
+    - name: Install docker-machine
+      get_url:
+        url: https://github.com/docker/machine/releases/download/v0.16.0/docker-machine-Linux-x86_64
+        dest: /usr/local/bin/docker-machine
+        mode: '0550'
+
+  roles:
+    - { role: geerlingguy.docker }
+    - { role: riemers.gitlab-runner }
+    - { role: wtanaka.gcloud_sdk, become: false }
