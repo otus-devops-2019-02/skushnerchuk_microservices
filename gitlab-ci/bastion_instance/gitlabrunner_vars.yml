@@ -1,6 +1,6 @@
 ---
 gitlab_runner_coordinator_url: 'http://35.240.14.156/'
-gitlab_runner_registration_token: 'V6oqRa8b-6kyn3zpxhWw'
+gitlab_runner_registration_token: 'gitlab_runner_registration_token'
 gitlab_runner_concurrent: 20
 gitlab_runner_runners:
   - name: 'gcp-runner'
@@ -20,7 +20,7 @@ gitlab_runner_runners:
         MachineDriver: 'google'
         MachineName: 'autoscale-%s'
         MachineOptions: [
-            "google-project=docker-239913",
+            "google-project=docker-12345",
             "google-machine-image=https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/family/ubuntu-1604-lts",
             "google-machine-type=n1-standard-1",
             "google-zone=europe-west1-b",

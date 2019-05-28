@@ -16,4 +16,4 @@
   roles:
     - { role: geerlingguy.docker }
     - { role: riemers.gitlab-runner }
-    - { role: wtanaka.gcloud_sdk, become: false }
+    - { role: wtanaka.gcloud_sdk }
