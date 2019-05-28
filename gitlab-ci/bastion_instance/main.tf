@@ -39,6 +39,10 @@ resource "google_compute_instance" "gitlabrunner" {
     private_key = "${file(var.private_key_path)}"
   }
 
+  provisioner "local-exec" {
+    command = "ansible-playbook -i inventory.gcp.yml create-bastion.yml"
+  }
+
 }
 
 resource "google_compute_firewall" "firewall_gitlabrunner" {

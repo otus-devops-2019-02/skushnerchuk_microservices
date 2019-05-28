@@ -1,11 +1,10 @@
 ---
-gitlab_runner_coordinator_url: 'https://gitlab.sk-developer.ru'
-gitlab_runner_registration_token: 'tvZxgTq8qPARFhhzyWsL'
+gitlab_runner_coordinator_url: 'http://35.240.14.156/'
+gitlab_runner_registration_token: 'V6oqRa8b-6kyn3zpxhWw'
 gitlab_runner_concurrent: 20
 gitlab_runner_runners:
   - name: 'gcp-runner'
-    description: 'Runner on Google Cloud Platform'
-    executor: docker+machine
+    executor: 'docker+machine'
     docker_image: 'alpine:latest'
     tags:
       - linux
@@ -14,8 +13,8 @@ gitlab_runner_runners:
       - docker
       - runner
     docker_volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "/cache"
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - '/cache'
     extra_configs:
       runners.machine:
         MachineDriver: 'google'

@@ -7,22 +7,22 @@ stages:
 
 variables:
   VERSION: '1.0'
-  APP_IP: '172.16.111.186'
+  APP_IP: '35.240.14.156'
 
 build:
   stage: build
   script:
-    - docker build -t reddit:$VERSION reddit/
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
-    - docker tag reddit:$VERSION $CI_REGISTRY_USER/otus-reddit:$VERSION
-    - docker push $CI_REGISTRY_USER/otus-reddit:$VERSION
+    - sudo docker build -t reddit:$VERSION reddit/
+    - sudo docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+    - sudo docker tag reddit:$VERSION $CI_REGISTRY_USER/otus-reddit:$VERSION
+    - sudo docker push $CI_REGISTRY_USER/otus-reddit:$VERSION
 
 test:
   stage: test
   script:
-    - docker run --name test_unit -d $CI_REGISTRY_USER/otus-reddit:$VERSION
-    - docker exec -i test_unit ruby -Creddit simpletest.rb
-    - docker rm -f test_unit
+    - sudo docker run --name test_unit -d $CI_REGISTRY_USER/otus-reddit:$VERSION
+    - sudo docker exec -i test_unit ruby -Creddit simpletest.rb
+    - sudo docker rm -f test_unit
 
 production deploy:
   stage: production
