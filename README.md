@@ -27,8 +27,6 @@
 `make IMAGE=ui SRC=ui build push` - собрать образ из папки ui залить в репозитарий образ $USER_NAME/ui
 
 
-[DockerHub](https://hub.docker.com/u/drcoyote)
-
 <details>
 <summary>Homework 16 (gitlab-ci-1)</summary>
 
