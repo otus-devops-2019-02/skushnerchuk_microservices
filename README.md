@@ -1,8 +1,34 @@
 
 
-[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=gitlab-ci-1)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
+[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=monitoring-1)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
 
-### Homework 16 (gitlab-ci-1)
+### Homework 17 (monitoring-1)
+## Основное задание
+
+Проведены эксмерименты по запуску и исследованию работы Prometheus.
+Выполнены работы по контейнеризации мониторинга совместо с приложением и зависимостями.
+
+**Задание со \***
+
+- Для мониторинга mongodb использоваля percona/mongodb_exporter1
+- Добавлен мониторинг с помощью Cloudprober
+- Создан Makefile который умеет собирать и пушить образы на [DockerHub](https://hub.docker.com/u/drcoyote):
+
+`make` собрать и залить в репозитарий все образы, указанные в переменных Makefile (SOURCES, IMAGES)
+
+`make build_all` - собрать все образы, перечисленные в переменной SOURCES
+
+`make push_all` - залить в репозитарий все образы, перечисленные в переменной IMAGES
+
+`make SRC=ui build` - собрать образ из папки ui
+
+`make IMAGE=ui push` - залить в репозитарий образ $USER_NAME/ui
+
+`make IMAGE=ui SRC=ui build push` - собрать образ из папки ui залить в репозитарий образ $USER_NAME/ui
+
+
+<details>
+<summary>Homework 16 (gitlab-ci-1)</summary>
 
 #### Сделано:
 Проведены эксперименты с GitLab:
@@ -68,14 +94,7 @@ gcloud auth application-default login
 ![alt text](./gitlab-ci/runners.png)
 
 **Выполнена интеграция GitLab и Slack** с помощью веб-хуков: [канал](https://devops-team-otus.slack.com/messages/CH2FTQXQE)
-
-
-
-
-
-
-
-
+</details>
 
 <details>
 <summary>Homework 15 (docker-4)</summary>
