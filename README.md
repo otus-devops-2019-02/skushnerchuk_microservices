@@ -1,8 +1,36 @@
 
-
-[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=monitoring-1)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
+[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=monitoring-2)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
 
 ### Homework 17 (monitoring-1)
+## Основное задание
+Проведены исследования по мониторингу и сборке метрик с тестового приложения и хостовой машины, в том числе docker.
+
+Выполнена подготовка и настройка dashboards в Graphana для отображения необходимых метрик.
+
+Настроены уведомления об остановке каких-либо компонент системы, также добавлена отправка таких уведомлений в slack-чат (https://devops-team-otus.slack.com/messages/CH2FTQXQE/)
+
+## Задание со *
+Доработан Makefile для работы с новыми образами
+
+Добавлена сборка метрик с Docker:
+- создан файл ```/etc/docker/daemon.json```
+- в нем указаны параметры для отправки метрик:
+```json
+{
+  "metrics-addr" : "0.0.0.0:9323",
+  "experimental" : true
+}
+```
+В конфигурации Prometheus добавлена цель:
+```yaml
+- job_name: "docker"
+  static_configs:
+    - targets:
+      - "127.0.0.1:9323"
+```
+
+<details>
+<summary>Homework 17 (monitoring-1)</summary>
 ## Основное задание
 
 Проведены эксмерименты по запуску и исследованию работы Prometheus.
@@ -25,6 +53,7 @@
 `make IMAGE=ui push` - залить в репозитарий образ $USER_NAME/ui
 
 `make IMAGE=ui SRC=ui build push` - собрать образ из папки ui залить в репозитарий образ $USER_NAME/ui
+</details>
 
 
 <details>

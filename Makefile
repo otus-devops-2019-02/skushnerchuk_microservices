@@ -3,11 +3,13 @@ export USER_NAME = drcoyote
 export SOURCES = src/post-py src/comment src/ui \
 								 monitoring/prometheus \
 								 monitoring/percona_exporter \
-								 monitoring/cloud_prober
+								 monitoring/cloud_prober \
+								 monitoring/alertmanager
+
 # Список образов, которые заливаем в репозитарий
 export IMAGES = ${USER_NAME}/prometheus ${USER_NAME}/percona-exporter \
-								${USER_NAME}/cloud-prober ${USER_NAME}/post \
-								${USER_NAME}/ui ${USER_NAME}/comment
+								${USER_NAME}/cloud-prober ${USER_NAME}/alertmanager \
+								${USER_NAME}/post ${USER_NAME}/ui ${USER_NAME}/comment
 
 # По умолчанию и собираем и выливаем в репозитарий
 all: build_images push_images
