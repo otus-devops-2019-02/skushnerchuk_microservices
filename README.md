@@ -1,7 +1,27 @@
 
-[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=monitoring-2)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
+[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=logging-1)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
 
-### Homework 17 (monitoring-1)
+### Homework 19 (logging-1)
+## Основное задание
+
+Установлен и настроен стек EFK для сбора и централизованного хранения логов. Выполнено подключение fluentd к компонентам приложения.
+
+## Задание со *
+
+Написан фильтр для парсинга неструктурированных логов
+
+Решена проблема тормозов приложения при открытии поста.
+
+Zipkin показал trace до проблемной функции:
+
+![Alt text](logging/screenshots/zipkin_trace.png "Title")
+
+В данной функции была искусственная пауза в 3 секунды. После ее исключения все работает нормально.
+
+Также пришлось чинить сборку поломанного приложения.
+
+<details>
+<summary>Homework 18 (monitoring-2)</summary>
 ## Основное задание
 Проведены исследования по мониторингу и сборке метрик с тестового приложения и хостовой машины, в том числе docker.
 
@@ -28,6 +48,7 @@
     - targets:
       - "127.0.0.1:9323"
 ```
+</details>
 
 <details>
 <summary>Homework 17 (monitoring-1)</summary>
