@@ -5,7 +5,6 @@ export SOURCES = src/post-py src/comment src/ui \
 								 monitoring/percona_exporter \
 								 monitoring/cloud_prober \
 								 monitoring/alertmanager
-
 # Список образов, которые заливаем в репозитарий
 export IMAGES = ${USER_NAME}/prometheus ${USER_NAME}/percona-exporter \
 								${USER_NAME}/cloud-prober ${USER_NAME}/alertmanager \
@@ -23,7 +22,7 @@ push_images:
 	for i in $(IMAGES); do docker push $$i; done
 
 build:
-	cd src/${SRC}; bash docker_build.sh;
+	cd ${src}; bash docker_build.sh;
 
 push:
-	docker push ${USER_NAME}/${IMAGE};
+	docker push ${USER_NAME}/${image};

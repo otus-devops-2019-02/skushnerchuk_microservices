@@ -1,14 +1,13 @@
-FROM alpine:latest
-RUN apk update && apk add ruby-full ruby-dev build-base ruby-bundler && \
-    gem install bundler --no-ri --no-rdoc
+FROM ruby:2.4.6-alpine
+RUN apk add --no-cache build-base
 
 ENV APP_HOME /app
 RUN mkdir $APP_HOME
-
 WORKDIR $APP_HOME
-ADD Gemfile* $APP_HOME/
+
+COPY Gemfile* $APP_HOME/
 RUN bundle install
-ADD . $APP_HOME
+COPY . $APP_HOME
 
 ENV POST_SERVICE_HOST post
 ENV POST_SERVICE_PORT 5000
