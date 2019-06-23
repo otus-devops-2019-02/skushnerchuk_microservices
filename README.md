@@ -1,12 +1,26 @@
 
-[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=logging-1)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
+[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=kubernetes-2)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
 
-### Homework 20 (kubernetes-1)
+
+### Homework 21 (kubernetes-2)
 ## Основное задание
 
+В рамках задания выполнено:
+
+- развертыванние окружения для работы с Kubernetes (minikube+virtualbox);
+- развернут Kubernetes в GKE и запущено приложение в нем;
+
+![](kubernetes/gke-reddit-app.png)
+
+- подготовлены конфигурации terraform для развертывания Kubernetes-кластера в GKE.
+
+
+<details>
+<summary>Homework 20 (kubernetes-1)</summary>
+## Основное задание
 
 Выполнена установка и настройка кластера в соответвии с **kubernetes-the-hard-way**
-
+</details>
 
 <details>
 <summary>Homework 19 (logging-1)</summary>

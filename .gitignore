@@ -11,3 +11,4 @@ run_app.sh
 .env
 create-docker-host.sh
 build_info.txt
+*.terraform.tfstate*

@@ -1,0 +1,4 @@
+project = "docker-12345"
+region = "europe-west1"
+zone = "europe-west1-b"
+cluster_name = "reddit-app-cluster"
