@@ -20,7 +20,7 @@
 ## Основное задание
 
 Выполнена установка и настройка кластера в соответвии с **kubernetes-the-hard-way**
-<details>
+</details>
 
 <details>
 <summary>Homework 19 (logging-1)</summary>
