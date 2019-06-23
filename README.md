@@ -1,7 +1,15 @@
 
 [![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=logging-1)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
 
-### Homework 19 (logging-1)
+### Homework 20 (kubernetes-1)
+## Основное задание
+
+
+Выполнена установка и настройка кластера в соответвии с **kubernetes-the-hard-way**
+
+
+<details>
+<summary>Homework 19 (logging-1)</summary>
 ## Основное задание
 
 Установлен и настроен стек EFK для сбора и централизованного хранения логов. Выполнено подключение fluentd к компонентам приложения.
@@ -19,6 +27,7 @@ Zipkin показал trace до проблемной функции:
 В данной функции была искусственная пауза в 3 секунды. После ее исключения все работает нормально.
 
 Также пришлось чинить сборку поломанного приложения.
+</details>
 
 <details>
 <summary>Homework 18 (monitoring-2)</summary>
