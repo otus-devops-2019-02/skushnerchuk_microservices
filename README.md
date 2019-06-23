@@ -1,5 +1,5 @@
 
-[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=logging-1)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
+[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=kubernetes-2)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
 
 
 ### Homework 21 (kubernetes-2)
