@@ -1,8 +1,18 @@
 
-[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=kubernetes-2)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
+[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=kubernetes-3)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
 
+### Homework 22 (kubernetes-3)
+## Основное задание
 
-### Homework 21 (kubernetes-2)
+В рамках выполнения задания рассмотрено поведение ingress-контрорлеров, секретов, TLS, балансировщиков, сетевых политик, персистентных хранилищ.
+
+Описан объект Secret как kubernetes-манифест
+```
+k8s_secrets.yml
+```
+
+<details>
+<summary>Homework 21 (kubernetes-2)</summary>
 ## Основное задание
 
 В рамках задания выполнено:
@@ -13,7 +23,7 @@
 ![](kubernetes/gke-reddit-app.png)
 
 - подготовлены конфигурации terraform для развертывания Kubernetes-кластера в GKE.
-
+</details>
 
 <details>
 <summary>Homework 20 (kubernetes-1)</summary>
