@@ -1,0 +1,8 @@
+---
+name: post
+version: 1.0.0
+description: OTUS reddit application post
+maintainers:
+  - name: Sergey Kushnerchuk
+    email: s.kushnerchuk@frontol.ru
+appVersion: 1.0

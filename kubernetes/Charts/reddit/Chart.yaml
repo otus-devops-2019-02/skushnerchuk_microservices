@@ -1,0 +1,7 @@
+---
+name: reddit
+version: 0.1.0
+description: OTUS sample reddit application
+maintainers:
+  - name: Sergey Kushnerchuk
+    email: s.kushnerchuk@frontol.ru

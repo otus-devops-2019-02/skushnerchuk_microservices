@@ -1,0 +1,27 @@
+---
+comment:
+  service:
+    internalPort: 9292
+    externalPort: 9292
+
+  image:
+    repository: drcoyote/comment
+    tag: latest
+
+post:
+  service:
+    internalPort: 5000
+    externalPort: 5000
+
+  image:
+    repository: drcoyote/post
+    tag: latest
+
+ui:
+  service:
+    internalPort: 9292
+    externalPort: 9292
+
+  image:
+    repository: drcoyote/ui
+    tag: latest

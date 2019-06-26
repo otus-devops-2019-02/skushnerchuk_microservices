@@ -8,58 +8,30 @@ provider "google" {
   region  = "${var.region}"
 }
 
-resource "google_container_cluster" "primary" {
-  name   = "${var.cluster-name}"
-  region = "${var.region}"
+resource "google_container_cluster" "cluster" {
+  name               = "${var.cluster_name}"
+  zone               = "${var.zone}"
+  initial_node_count = "${var.initial_node_count}"
 
-  remove_default_node_pool = true
-  initial_node_count       = "${var.node-count}"
-
-  master_auth {
-    username = ""
-    password = ""
-
-    client_certificate_config {
-      issue_client_certificate = false
-    }
+  node_config {
+    preemptible  = "${var.is_preemptible}"
+    machine_type = "${var.machine_type}"
   }
 
   addons_config {
     kubernetes_dashboard {
       disabled = false
     }
-  }
-}
 
-resource "google_container_node_pool" "primary_nodes" {
-  name       = "node-pool"
-  region     = "${var.region}"
-  cluster    = "${google_container_cluster.primary.name}"
-  node_count = 1
-
-  node_config {
-    machine_type = "g1-small"
-    disk_size_gb = "10"
-
-    metadata {
-      disable-legacy-endpoints = "true"
+    network_policy_config {
+      disabled = "${var.disable_network_policy_addon}"
     }
-
-    oauth_scopes = [
-      "https://www.googleapis.com/auth/logging.write",
-      "https://www.googleapis.com/auth/monitoring",
-    ]
-  }
-}
-
-resource "google_compute_firewall" "firewall_nodeport" {
-  name    = "allow-kube-default"
-  network = "default"
-
-  allow {
-    protocol = "tcp"
-    ports    = ["30000-32767"]
   }
 
-  source_ranges = ["0.0.0.0/0"]
+  network_policy {
+    enabled = "${var.enable_network_policy}"
+  }
+
+  //for hw kubernetes-4
+  enable_legacy_abac = "${var.enable_legacy_abac}"
 }
