@@ -1,0 +1,10 @@
+---
+service:
+  internalPort: 9292
+  externalPort: 9292
+
+image:
+  repository: drcoyote/comment
+  tag: latest
+
+databaseHost:
