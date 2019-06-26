@@ -1,13 +1,25 @@
 
-[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=kubernetes-4)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
+[![Build Status](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices.svg?branch=kubernetes-5)](https://travis-ci.com/otus-devops-2019-02/skushnerchuk_microservices)
 
-### Homework 23 (kubernetes-4)
+### Homework 24 (kubernetes-5)
 ## Основное задание
+
+В рамках задания выполнено:
+- установка и настройка компонентов мониторинга
+- деплой приложения
+- настройка мониторинга компонентов приложения
+- установка grafana, настройка dashboards
+
+<details>
+<summary>Homework 23 (kubernetes-4)</summary>
+## Основное задание
+
 В рамках задания выполнено:
 - установен Helm;
 - подготовлены Charts для отдельных компонентов и приложения целиком
 - развернут Gitlab CI Omnibus в Kubernetes;
 - написан Pipeline для развертывания приложения в Kubernetes.
+</details>
 
 <details>
 <summary>Homework 22 (kubernetes-3)</summary>
